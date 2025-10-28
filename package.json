@@ -1,0 +1,15 @@
+{
+  "name": "electron-mydailyorganiser",
+  "version": "1.0.0",
+  "description": "It's the first electron application that I build. In this app, I used my another repository called MyDailyOrganiser on github.com. Basicly this app helps you to organise your daily tasks.",
+  "license": "ISC",
+  "author": "iyiinsan5555",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0"
+  }
+}
