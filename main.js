@@ -1,5 +1,6 @@
 
 const {app, BrowserWindow, ipcMain, Notification, Tray, Menu} = require("electron");
+const schedule = require('node-schedule');
 
 const path = require("node:path");
 
@@ -18,11 +19,12 @@ const createWindow = () => {
 
 
 app.on("ready", ()=> {
-    ipcMain.on("tasks", (event, tasks)=> { createNotificationOnAlarm(tasks) })
+    ipcMain.on("tasks", (event, tasks)=> { createNotificationForTasks(tasks) })
 
     createWindow();
     createTray();
     interceptClose();
+    handleWakeUp_Sleep();
 
     app.on('activate', () => { //Open a window if none are open (macOS)
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -65,7 +67,7 @@ function createTray() {
 }
 
 
-function createNotificationOnAlarm(taskArray) { //It creates notification for all tasks in array
+function createNotificationForTasks(taskArray) { //It creates notification for all tasks in array
     taskArrayStorage.splice(0, taskArrayStorage.length);
 
     taskArray.forEach((task) => {
@@ -95,8 +97,41 @@ function createNotificationOnAlarm(taskArray) { //It creates notification for al
 
             new Notification({
                 title: `Alarm for "${name}"`,
-                body: `You set alarm for ${alarmTime} for your task "${name}"`
+                body: `You set alarm for ${alarmTime} for your task "${name}"`,
+                urgency: "critical",
+                timeoutType: "never"
             }).show();
+
+
         }, delay);
     });
+}
+
+
+function handleWakeUp_Sleep() {
+    // Wake up notification at 7:00 AM every day
+    schedule.scheduleJob('0 7 * * *', () => {
+        const wakeUpNotification = new Notification({
+            title: "WAKE UP!",
+            body: "Rise and shine!",
+            urgency: "critical",
+        });
+        
+        wakeUpNotification.show();
+        console.log("Wake up notification shown at 7:00 AM");
+    });
+
+    // Sleep notification at 9:45 PM every day
+    schedule.scheduleJob('45 21 * * *', () => {
+        const sleepNotification = new Notification({
+            title: "SLEEP TIME!",
+            body: "Sweet dreams!",
+            urgency: "critical",
+        });
+        
+        sleepNotification.show();
+        console.log("Sleep notification shown at 9:45 PM");
+    });
+    
+    console.log("Wake up and sleep notifications scheduled");
 }
