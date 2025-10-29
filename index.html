@@ -1,21 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
-  </body>
-  <script src="./renderer.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Daily Organizer</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+
+        <div class="wake-up-task">
+            <h3 class="title">WAKE-UP TIME</h3>
+            <h3 class="time">07.00 <span>AM</span></h3>
+            <img class="wake-up-img" src="Images/wake-up-img.png" alt="wake-up img">
+            <p class="description">Rise and shine!</p>
+        </div>
+
+
+        <div class="add-task">
+            <input type="text" class="task-title" placeholder="TASK TITLE" required>
+            <input type="text" class="task-description" placeholder="Task description">
+            <div class="row-div">
+                <input type="time" class="alarm-time">
+                <div class="flex-row">
+                    <h3 class="importance-scala-renderer">Importance: 1</h3>
+                    <input type="range" min="1" max="5" value="1" class="important-scala-input">
+                </div>
+                <img class="plus-icon" src="Images/plus-icon.png">
+            </div>
+        </div>
+
+
+        <ul class="classic-task-list">
+
+            <!--<div class="classic-task">
+                <h3 class="title">Task 1</h3>
+                <p class="description">Description of task 1.</p>
+                <div class="task-info">
+                    <p class="alarm-time">17:30 PM</p> 
+                    <p class="imp-scala">Importance: ★★★☆☆</p>
+                </div>
+                <button class="delete-btn">Delete</button>
+            </div>-->
+            
+        </ul>
+
+
+        <div class="sleep-task">
+            <h3 class="title">SLEEP TIME</h3>
+            <h3 class="time">10.00 <span>PM</span></h3>
+            <img class="wake-up-img" src="Images/sleep-img.png" alt="sleep img">
+            <p class="description">Sweet dreams!</p>
+        </div>
+        
+    </div>
+    
+    
+
+    <script src="renderer.js"></script> <!--NOW YOU ARE USING ELECTRON! Be careful!-->
+</body>
 </html>

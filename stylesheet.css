@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #fefefe;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 25px;
+}
+
+/* Titles */
+.title {
+    font-weight: 700;
+    color: #3f2b96;
+}
+
+p, h3 {
+    color: #444;
+    margin: 0;
+}
+
+/* Wake Up & Sleep Section */
+.wake-up-task, .sleep-task {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.wake-up-task .title,
+.sleep-task .title {
+    color: #3f2b96;
+    letter-spacing: 1px;
+}
+
+.wake-up-task .time,
+.sleep-task .time {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.wake-up-task img,
+.sleep-task img {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.wake-up-task p,
+.sleep-task p {
+    color: #555;
+    font-weight: 400;
+}
+
+/* Add Task Section */
+.add-task {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.add-task input[type="text"],
+.add-task input[type="time"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.add-task input[type="text"]:focus,
+.add-task input[type="time"]:focus {
+    border-color: #3f2b96;
+    box-shadow: 0 0 4px rgba(63, 43, 150, 0.3);
+}
+
+.add-task .row-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-row h3 {
+    margin-right: 10px;
+    color: #3f2b96;
+}
+
+.important-scala-input {
+    accent-color: #3f2b96;
+    cursor: pointer;
+}
+
+/* Plus Icon */
+.plus-icon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    filter: brightness(1);
+}
+
+.plus-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Classic Task List */
+.classic-task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.classic-task {
+    background: #ffffff;
+    width: 100%;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.classic-task:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.classic-task .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2e2e2e;
+}
+
+.classic-task .description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.classic-task .task-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.classic-task .task-info .alarm-time {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3f2b96;
+    background: #f3f2ff;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+@keyframes classicTaskAnimation {
+    0%   { transform: scaleY(0); opacity: 0; }
+    100% { transform: scaleY(1); opacity: 1; }
+}
+
+.classic-task-animation {
+    transform-origin: top;
+    animation: classicTaskAnimation 0.3s ease-out forwards;
+}
+
+.classic-task .task-info .imp-scala {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffb400;
+    letter-spacing: 2px;
+    margin: 0;
+    transition: transform 0.2s ease;
+}
+
+.classic-task .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.classic-task .delete-btn:hover {
+    background-color: #e63946;
+    transform: scale(1.1);
+}
+
+/* Hover Animations */
+.classic-task:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.17);
+}
+
+/* ---------- MOBILE ADJUSTMENTS ---------- */
+@media (max-width: 480px) {
+    .main-container { padding: 15px; }
+
+    .wake-up-task, .sleep-task, .add-task { padding: 15px; }
+
+    .wake-up-task .time,
+    .sleep-task .time {
+        font-size: 2rem;
+    }
+
+    .add-task .row-div {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flex-row {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .plus-icon {
+        width: 30px;
+        height: 30px;
+        align-self: flex-end;
+    }
+
+    .imp-scala {
+        font-size: 0.75rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .classic-task {
+        padding: 32px 22px ;
+    }
+}

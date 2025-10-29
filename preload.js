@@ -1,9 +1,7 @@
-const { contextBridge, ipcRenderer } = require('electron');
+//For now I don't need to use it, right?
 
-contextBridge.exposeInMainWorld('versions', {
-  node: () => process.versions.node,
-  chrome: () => process.versions.chrome,
-  electron: () => process.versions.electron,
-  ping: () => ipcRenderer.invoke("ping")
-  // we can also expose variables, not just functions
+const { contextBridge, ipcRenderer } = require('electron')
+
+contextBridge.exposeInMainWorld('ipc', {
+  tasks: (tasks) => ipcRenderer.send("tasks",tasks)
 })
