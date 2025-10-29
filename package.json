@@ -1,5 +1,5 @@
 {
-  "name": "electron-mydailyorganiser",
+  "name": "my-daily-organiser",
   "version": "1.0.0",
   "description": "It's the first electron application that I build. In this app, I used my another repository called MyDailyOrganiser on github.com. Basicly this app helps you to organise your daily tasks.",
   "license": "ISC",
@@ -16,7 +16,7 @@
     "forge": {
       "packagerConfig": {
         "icon": "assets/icon.ico",
-        "productName": "My Daily Organiser"
+        "productName": "My Daily Organizer"
       },
       "makers": [
         {
