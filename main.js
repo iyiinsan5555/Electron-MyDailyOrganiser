@@ -1,3 +1,7 @@
+if (require('electron-squirrel-startup')) {
+  return;
+}
+//Setup for shortcut
 
 const {app, BrowserWindow, ipcMain, Notification, Tray, Menu} = require("electron");
 const schedule = require('node-schedule');
@@ -14,7 +18,7 @@ const createWindow = () => {
         webPreferences: {preload: path.join(__dirname, "preload.js")}
     });
 
-    mainWindow.loadFile("index.html");
+    mainWindow.loadFile(path.join(__dirname, "index.html"));
 }
 
 
@@ -51,7 +55,7 @@ function interceptClose() {
 
 function createTray() {
     //Creating system tray
-    tray = new Tray("icon.png");
+    tray = new Tray(path.join(__dirname, "icon.png"));
     const contextMenu = Menu.buildFromTemplate([
         {label: "Show", click: ()=> {mainWindow.show()}},
         {label: "Quit", click: ()=> {app.isQuitting = true; app.quit()}}
