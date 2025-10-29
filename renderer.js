@@ -17,6 +17,7 @@ const taskObjectSimple = {
 
 //Save to localStorage
 function saveLocalStorage() {
+    ipc.saveTasks(tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     //updating tasks so my backend can use them
     tasks = JSON.parse(localStorage.getItem("tasks"));

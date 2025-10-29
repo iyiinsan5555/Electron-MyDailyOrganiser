@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
+    "electron-storage": "^1.0.7",
     "node-schedule": "^2.1.1"
   }
 }

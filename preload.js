@@ -3,5 +3,6 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('ipc', {
-  tasks: (tasks) => ipcRenderer.send("tasks",tasks)
+  tasks: (tasks) => ipcRenderer.send("tasks",tasks),
+  saveTasks: (tasks) => ipcRenderer.send("saveTasks",tasks)
 })

@@ -7,6 +7,7 @@ const {app, BrowserWindow, ipcMain, Notification, Tray, Menu} = require("electro
 const schedule = require('node-schedule');
 
 const path = require("node:path");
+const fs = require("fs");
 
 let taskArrayStorage = [];
 let mainWindow, tray;
@@ -24,6 +25,7 @@ const createWindow = () => {
 
 app.on("ready", ()=> {
     ipcMain.on("tasks", (event, tasks)=> { createNotificationForTasks(tasks) })
+    ipcMain.on("saveTasks", (event, tasks)=> { saveTasks(tasks) })
 
     createWindow();
     createTray();
@@ -52,7 +54,7 @@ function interceptClose() {
     })
 }
 
-
+//Fix double tray
 function createTray() {
     //Creating system tray
     tray = new Tray(path.join(__dirname, "icon.png"));
@@ -138,4 +140,10 @@ function handleWakeUp_Sleep() {
     });
     
     console.log("Wake up and sleep notifications scheduled");
+}
+
+
+
+function saveTasks(tasks) {
+
 }
